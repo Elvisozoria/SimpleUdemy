@@ -7,9 +7,55 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   
   </head>
 
   <body>
+
+  <nav>
+    <div class="nav-wrapper green darken-1">
+      <a href="#!" class="brand-logo">Udemo</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+      <li><a href="#">Courses</a></li>
+      <li><a href="<%= pages_about_path %>">About</a></li>
+      <li><a href="<%= pages_location_path %>">Location</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <ul class="sidenav" id="mobile-demo">
+    <li><a href="#">Courses</a></li>
+    <li><a href="<%= pages_about_path %>">About</a></li>
+    <li><a href="<%= pages_location_path %>">Location</a></li>
+  </ul>
+<div class="row">
+  <div class="col m10 offset-m1">
     <%= yield %>
+  </div>
+</div>
+
+
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.sidenav');
+      var instances = M.Sidenav.init(elems, options);
+    });
+  
+    // Or with jQuery
+  
+    $(document).ready(function(){
+      $('.sidenav').sidenav();
+    });
+    </script>
   </body>
 </html>
